@@ -1,7 +1,37 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="logaligroup.invoices.controller.Mainview" displayBlock="true">
-    <Page id="page" title="{i18n>title}">
-    <content><Label text="Hello Word" width="100%" id="label1"/>
-        <Label text="correcto" width="100%" id="label0"/>
-    </content>
-    </Page>
+<mvc:View
+     controllerName="logaligroup.invoices.controller.Mainview"
+     xmlns:mvc="sap.ui.core.mvc" 
+     xmlns="sap.m"  
+     displayBlock="true"
+     xmlns:core="sap.ui.core"
+>
+                       <Page id="page" title="{i18n>title}">
+                           <content>
+                           
+                              <Panel headerText="{i18n>SelectionScreen}">
+                                 <Label id="labelShipName" text="{i18n>ShipName}" class="sapUiSmallMargin"/>
+                                 <Input id="ShipName" value="{SelectionScreen>/ShipName}" width="200px" class="sapUiSmallMarginEnd"/>
+                                 <Label id="labelCountry" text="{i18n>Country}" class="sapUiSmallMargin"/>
+                                 <Select id="slCountry" selectedKey="{SelectionScreen>/CountryKey}"
+                                                        forceSelection="false"
+                                                        items="{SelectionScreen>/Countries}">
+                                          <items>
+                                                 <core:Item key="{SelectionScreen>Key}" text="{SelectionScreen>text}"/>
+                                          </items>
+
+                                 </Select>
+                                 <Button id="btnFilters"
+                                          text="{i18n>btnFilter}"
+                                          icon="sap-icon://filter"
+                                          press="onFilter"
+                                          class="sapUiMarginSmallEnd"/>                                 
+                                 <Button id="btnClearFilters"
+                                  text="{i18n>btnClearFilters}"
+                                  icon="sap-icon://clear-filter"
+                                  press="onClearFilters"
+                                  class="sapUiMarginSmallEnd"/>
+
+                              </Panel>
+                           </content>
+                     </Page>
 </mvc:View>
